@@ -13,41 +13,46 @@
 		<div class="ui two column centered grid">
 
 			<div class="ui ten wide column">
-
-				<div id="header">
-
-					<h1 class='companyName'>Company name</h1>
-					<h2 class='cathPhrase'>Catch Phrase</h2>
-					<div>At <span class='companyName'>{company name}</span>, we create <span class='productAdjective'>{productAdjective}</span></div>
-					<div><span class='productName'>{productName}</span> made of <span class="productMaterial">{productMaterial}</span></div>
-					<div>Fin out more on <span class='url'>{http://url.com}</span></div>
-				
-				</div>
-
-				<div id="productCard">
-				
-					<div class="businessImg"></div>
-					<h3 class='productName'>{productName}</h3>
-					<h4>Material : <span class='productMaterial'>{productMaterial}</span></h4>
-					<h4>Color: <span class='color'>{color}</span></h4>
-					<h3><span class='price'>{Price}</span> $ only !</h3>
-					<button class='ui purple button'>Take my money</button>
-				
-				</div>
-
+				<div id="header"></div>
+				<div id="productCard"></div>
 			</div>
 
 			<div class="ui four wide column">
-
-				<div class="cardImg"> </div>
-				<div class="card"> </div>
-
+				<div id="personCard"></div>
 			</div>
+
 		</div>
+		
 	</div>
 
+	<script id="headerTemplate" type="text/template">
+		<h1>{{companyName}}</h1>
+		<h2>{{cathPhrase}}</h2>
+		<div>At {{companyName}}, we create {{productAdjective}}</div>
+		<div>{{productName}}</span> made of {{productMaterial}}</div>
+		<div>Fin out more on {{url}}</div>
+	</script>
+
+	<script id="productCardTemplate" type="text/template">
+		<div><img src='{{businessImg}}' alt='image business'></div>
+		<h3>{{productName}}</h3>
+		<h4>Material : {{productMaterial}}</h4>
+		<h4>Color: {{color}}</h4>
+		<h3>{{price}}$ only !</h3>
+		<button class='ui purple button'>Take my money</button>		
+	</script>
+
+	<script id="personCardTemplate" type="text/template">
+		<img src='{{cardImg}}' alt='avatar'>
+		<h3>{{randomCard.name}}</h3>
+		<h4>{{randomCard.company.bs}}</h4>
+		<h4>Contact info</h4>
+		<h4>{{randomCard.address.streetB}}</h4>
+		<h4>{{randomCard.address.zipcode}} {{randomCard.address.city}}</h4>
+	</script>
 
 	<script src="node_modules/jquery/dist/jquery.min.js"></script>
+	<script src="node_modules/mustache/mustache.min.js"></script>
 	<script src="app.js"></script>
 </body>
 </html>

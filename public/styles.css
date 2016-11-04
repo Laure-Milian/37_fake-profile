@@ -3,6 +3,10 @@
 	margin: 50px auto;
 }
 
+#header {
+	text-align: center;
+}
+
 #productCard {
 	border: 1px solid grey;
 	text-align: center;
@@ -11,6 +15,6 @@
 	margin: 10px auto;
 }
 
-#header {
+#personCard {
 	text-align: center;
 }

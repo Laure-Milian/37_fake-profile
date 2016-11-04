@@ -16,22 +16,21 @@
 		},
 
 		requestDone: function(response) {
-			console.log(response);
-			// Colonne de droite
-			$('.card').append('<h4>' + response.randomCard.name + '</h4>');
-			$('.card').append('<h4>' + response.randomCard.company.bs + '</h4>');
-			$('.card').append('<h4> Contact info </h4>');
-			$('.card').append('<h4>' + response.randomCard.address.streetB + '</h4>');
-			$('.card').append('<h4>' + response.randomCard.address.zipcode + " " + response.randomCard.address.city + '</h4>');
-			
-			// Colonne de gauche
-			for (var prop in response) {
-				$('.' + prop).html(response[prop]);
-				if (prop === 'businessImg' || prop === 'cardImg') {
-					$('.' + prop).html('<img src="' + response[prop] + '">');
-				};
-			}
 
+			// Header
+			var headerTemplate = $('#headerTemplate').html();
+			var htmlHeader = Mustache.to_html(headerTemplate, response);
+			$('#header').html(htmlHeader);
+
+			// Product Card
+			var productCardTemplate = $('#productCardTemplate').html();
+			var htmlProductCard = Mustache.to_html(productCardTemplate, response);
+			$('#productCard').html(htmlProductCard);
+
+			// Person Card
+			var personCardTemplate = $('#personCardTemplate').html();
+			var htmlPersonCard = Mustache.to_html(personCardTemplate, response);
+			$('#personCard').html(htmlPersonCard);		
 		},
 
 		requestFail: function() {
